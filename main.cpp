@@ -17,6 +17,7 @@ int main(int argc, char *argv[])
             break;
         }
     }
+
     OneMarkdown w;
     w.show();
     return a.exec();

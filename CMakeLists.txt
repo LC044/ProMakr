@@ -15,9 +15,15 @@ set(QT_PATH "D:\\ProgramData\\Qt\\Qt5.12.12\\5.12.12\\mingw73_64")
 set(CMAKE_PREFIX_PATH ${QT_PATH}/lib/cmake)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
-
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(TS_FILES OneMarkdown_zh_CN.ts)
+include(FetchContent)
 
+# FetchContent_Declare(
+#   maddy
+#   URL https://github.com/progsource/maddy/.../maddy-src.zip
+# )
+# FetchContent_MakeAvailable(maddy)
 set(PROJECT_SOURCES
         main.cpp
         OneMarkdown.cpp
@@ -54,7 +60,6 @@ else()
 endif()
 
 target_link_libraries(OneMarkdown PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
 set_target_properties(OneMarkdown PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}

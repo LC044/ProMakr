@@ -15,6 +15,9 @@ public:
     OneMarkdown(QWidget *parent = nullptr);
     ~OneMarkdown();
 
+private slots:
+    void on_textEdit_textChanged();
+
 private:
     Ui::OneMarkdown *ui;
 };

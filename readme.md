@@ -1,8 +1,9 @@
 # 一个优秀的Markdown编辑器
 
+[![LICENSE](https://img.shields.io/badge/ProMakr-简记-blue.svg)](LICENSE)
 [![stars](https://img.shields.io/github/stars/LC044/OneMarkdown.svg)](https://github.com/LC044/OneMarkdown/stargazers)
 [![文档](https://img.shields.io/badge/文档-最新-brightgreen.svg)](./doc/readme.md)
-[![LICENSE](https://img.shields.io/badge/license-GPL3.0-blue.svg)](LICENSE)
+[![LICENSE](https://img.shields.io/badge/Apache-2.0-blue.svg)](LICENSE)
 
 
 <!-- 
