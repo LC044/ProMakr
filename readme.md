@@ -4,21 +4,16 @@
 </div>
 <div align="center">
 <img src="https://img.shields.io/badge/ProMakr-简记-blue.svg">
-<a herf="https://github.com/LC044/OneMarkdown/stargazers">
+<a href="https://github.com/LC044/OneMarkdown/stargazers">
     <img src="https://img.shields.io/github/stars/LC044/OneMarkdown.svg" />
 </a>
-<a herf="./doc/readme.md">
+<a href="./doc/readme.md">
     <img src="https://img.shields.io/badge/文档-最新-brightgreen.svg" />
 </a>
-<a herf="LICENSE">
+<a href="LICENSE">
     <img src="https://img.shields.io/badge/Apache-2.0-blue.svg" />
 </a>
 </div>
-
-<!-- [![LICENSE](https://img.shields.io/badge/ProMakr-简记-blue.svg)](LICENSE)
-[![stars](https://img.shields.io/github/stars/LC044/OneMarkdown.svg)](https://github.com/LC044/OneMarkdown/stargazers)
-[![文档](https://img.shields.io/badge/文档-最新-brightgreen.svg)](./doc/readme.md)
-[![LICENSE](https://img.shields.io/badge/Apache-2.0-blue.svg)](LICENSE) -->
 
 <!-- 
 git config --global http.https://github.com.proxy socks5://127.0.0.1:1086
