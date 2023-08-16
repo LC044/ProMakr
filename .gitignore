@@ -71,6 +71,7 @@ Thumbs.db
 # --------
 *.dll
 *.exe
+.VS
 build
 .vscode
 maddy
