@@ -73,5 +73,5 @@ Thumbs.db
 *.exe
 .VS
 build
+test.*
 .vscode
-maddy

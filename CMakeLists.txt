@@ -23,10 +23,10 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/include)
 # set(TS_FILES OneMarkdown_zh_CN.ts)
 
 set(PROJECT_SOURCES
-        main.cpp
-        OneMarkdown.cpp
-        OneMarkdown.h
-        OneMarkdown.ui
+        src/main.cpp
+        src/OneMarkdown.cpp
+        src/OneMarkdown.h
+        src/OneMarkdown.ui
         ${TS_FILES}
 )
 if(MATRIX_BUILD AND NOT MATRIX_SUBBUILD AND NOT QT_SUPERBUILD)
