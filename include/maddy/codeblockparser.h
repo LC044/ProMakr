@@ -125,13 +125,13 @@ protected:
     }
     else if (!this->isStarted && line.substr(0, 3) == "```")
     {
-      line = "<pre class=\"md-fences md-end-block ty-contain-cm modeLoaded\" spellcheck=\"false\" lang=\"" + line.substr(3) + "\"><code>";
+      line = "<pre><code class=\"language-"+ line.substr(3)+"\">";
       this->isStarted = true;
       this->isFinished = false;
       return;
     }
 
-    line += "<br>&nbsp;&nbsp;&nbsp;&nbsp;";
+    line += "\\n";
   }
 
 private:
