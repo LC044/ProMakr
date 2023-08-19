@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/icon" lang="c++">
+        <file>icon/333333_128_21555066.png</file>
+        <file>icon/btn_hide_show_sideBar.png</file>
+        <file>icon/logo.png</file>
+    </qresource>
+</RCC>

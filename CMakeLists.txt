@@ -20,8 +20,9 @@ find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets WebEngineWidgets WebChanne
 
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/include)
-# set(TS_FILES OneMarkdown_zh_CN.ts)
+set(TS_FILES OneMarkdown_zh_CN.ts)
 
+file(GLOB_RECURSE QRC_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/*.qrc)
 set(PROJECT_SOURCES
         src/main.cpp
         src/OneMarkdown.cpp

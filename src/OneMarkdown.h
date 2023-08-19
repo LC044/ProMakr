@@ -7,6 +7,7 @@
 // #include <QtWebEngineWidgets/QWebEngineView>
 #include <QtWebEngineWidgets/QWebEngineView>
 #include<QtWebEngine/QtWebEngine>
+#include <QLabel>
 QT_BEGIN_NAMESPACE
 namespace Ui { class OneMarkdown; }
 QT_END_NAMESPACE
@@ -23,7 +24,15 @@ public:
 private slots:
     void on_textEdit_textChanged();
 
+    void on_textEdit_selectionChanged();
+
+    void on_textEdit_textEdited();
+
+    void textEdit_textChanged();
+
+    void time_update();
 private:
     Ui::OneMarkdown *ui;
+    QLabel *statusLabel;
 };
 #endif // MAINWINDOW_H
