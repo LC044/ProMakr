@@ -78,6 +78,9 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
+      <property name="opaqueResize">
+       <bool>true</bool>
+      </property>
       <property name="handleWidth">
        <number>1</number>
       </property>
@@ -205,6 +208,9 @@ background-color:rgba(0,0,0,0);
         <property name="spacing">
          <number>0</number>
         </property>
+        <property name="sizeConstraint">
+         <enum>QLayout::SetDefaultConstraint</enum>
+        </property>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_5">
           <property name="spacing">
@@ -218,10 +224,17 @@ background-color:rgba(0,0,0,0);
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">font-size:20</string>
+             <string notr="true">font-size:20;
+border:none;</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Sunken</enum>
+            </property>
+            <property name="lineWidth">
+             <number>4</number>
             </property>
             <property name="tabChangesFocus">
              <bool>false</bool>
@@ -249,6 +262,9 @@ p, li { white-space: pre-wrap; }
               <verstretch>0</verstretch>
              </sizepolicy>
             </property>
+            <property name="styleSheet">
+             <string notr="true"> border:none;</string>
+            </property>
             <property name="url" stdset="0">
              <url>
               <string>about:blank</string>
@@ -259,19 +275,23 @@ p, li { white-space: pre-wrap; }
          </layout>
         </item>
         <item>
-         <widget class="Line" name="line_2">
-          <property name="styleSheet">
-           <string notr="true">background-color:rgb(221,221,221);   </string>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QWidget" name="widget1" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>0</width>
+            <height>32</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>32</height>
+           </size>
+          </property>
           <property name="styleSheet">
-           <string notr="true">background-color: rgb(255, 255, 255);</string>
+           <string notr="true">background-color: rgb(255, 255, 255);
+border:2px;
+solid:rgb(221,221,221);</string>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <property name="spacing">
@@ -313,8 +333,8 @@ p, li { white-space: pre-wrap; }
                </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton:hover {
-	background-color: rgb(250, 250, 250);
-	color:rgb(150,150,150);
+	background-color: rgb(240, 240, 240);
+	color:rgb(128,128,128);
 }
 QPushButton{
 	color:white;
@@ -325,8 +345,8 @@ QPushButton{
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
-                 <normaloff>data/icon/btn_hide_show_sideBar.png</normaloff>data/icon/btn_hide_show_sideBar.png</iconset>
+                <iconset resource="../data/img.qrc">
+                 <normaloff>:/icon/icon/333333_128_21555066.png</normaloff>:/icon/icon/333333_128_21555066.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -361,8 +381,8 @@ QPushButton{
                </property>
                <property name="styleSheet">
                 <string notr="true">QPushButton:hover {
-	background-color: rgb(250, 250, 250);
-	color:rgb(150,150,150);
+	background-color: rgb(240, 240, 240);
+	color:rgb(128,128,128);
 }
 QPushButton{
 	color:white;
@@ -373,8 +393,8 @@ QPushButton{
                 <string/>
                </property>
                <property name="icon">
-                <iconset>
-                 <normaloff>data/icon/333333_128_21555066.png</normaloff>data/icon/333333_128_21555066.png</iconset>
+                <iconset resource="../data/img.qrc">
+                 <normaloff>:/icon/icon/btn_hide_show_sideBar.png</normaloff>:/icon/icon/btn_hide_show_sideBar.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -402,8 +422,61 @@ QPushButton{
              </item>
              <item>
               <widget class="QToolButton" name="btn_word_count">
+               <property name="maximumSize">
+                <size>
+                 <width>2000</width>
+                 <height>32</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <underline>false</underline>
+                </font>
+               </property>
+               <property name="layoutDirection">
+                <enum>Qt::RightToLeft</enum>
+               </property>
+               <property name="autoFillBackground">
+                <bool>false</bool>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">QToolButton
+{
+	border: none;
+    background-color: rgb(255, 255, 255);    
+	text-align:right;
+}
+QToolButton:hover {
+	background-color: rgb(240, 240, 240);
+}</string>
+               </property>
                <property name="text">
-                <string>...</string>
+                <string>0 词</string>
+               </property>
+               <property name="icon">
+                <iconset resource="../data/img.qrc">
+                 <normaloff>:/icon/icon/logo.png</normaloff>:/icon/icon/logo.png</iconset>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>16</width>
+                 <height>16</height>
+                </size>
+               </property>
+               <property name="checkable">
+                <bool>false</bool>
+               </property>
+               <property name="checked">
+                <bool>false</bool>
+               </property>
+               <property name="popupMode">
+                <enum>QToolButton::InstantPopup</enum>
+               </property>
+               <property name="toolButtonStyle">
+                <enum>Qt::ToolButtonTextOnly</enum>
+               </property>
+               <property name="autoRaise">
+                <bool>false</bool>
                </property>
                <property name="arrowType">
                 <enum>Qt::NoArrow</enum>
@@ -1942,6 +2015,25 @@ QPushButton{
    <header location="global">QtWebEngineWidgets/QWebEngineView</header>
   </customwidget>
  </customwidgets>
- <resources/>
- <connections/>
+ <resources>
+  <include location="../data/img.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>btn_word_count</sender>
+   <signal>clicked()</signal>
+   <receiver>btn_word_count</receiver>
+   <slot>showMenu()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>753</x>
+     <y>562</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>753</x>
+     <y>562</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

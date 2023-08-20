@@ -75,3 +75,4 @@ Thumbs.db
 build
 test.*
 .vscode
+.VSCodeCounter

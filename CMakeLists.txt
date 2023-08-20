@@ -23,6 +23,8 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(TS_FILES OneMarkdown_zh_CN.ts)
 
 file(GLOB_RECURSE QRC_SOURCE_FILES ${CMAKE_CURRENT_SOURCE_DIR}/data/*.qrc)
+
+qt5_add_resources(qrc_FILES data/img.qrc)
 set(PROJECT_SOURCES
         src/main.cpp
         src/OneMarkdown.cpp
@@ -34,6 +36,7 @@ set(PROJECT_SOURCES
         src/common.cpp
         src/menu.cpp
         ${TS_FILES}
+        ${qrc_FILES}
 )
 if(MATRIX_BUILD AND NOT MATRIX_SUBBUILD AND NOT QT_SUPERBUILD)
     add_build(webengine_webrtc OFF)
