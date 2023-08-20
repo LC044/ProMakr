@@ -78,6 +78,9 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
+      <property name="opaqueResize">
+       <bool>false</bool>
+      </property>
       <property name="handleWidth">
        <number>1</number>
       </property>
@@ -365,7 +368,7 @@ QScrollBar::add-line:vertical
          <widget class="QWidget" name="widget1" native="true">
           <property name="minimumSize">
            <size>
-            <width>0</width>
+            <width>300</width>
             <height>32</height>
            </size>
           </property>

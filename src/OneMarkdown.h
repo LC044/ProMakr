@@ -58,6 +58,8 @@ private:
     int WORD_NUM = 0;
     int CHAR_NUM = 0;
     int LINE_NUM = 0;
+    bool isSideClosed = false;
+    QList<int> SidePos={10000,40000};
     int size = 0;
     int counter = 0;
     int start = 0;
@@ -66,6 +68,7 @@ private:
     QLabel *statusLabel;
     bool isShowSideBar = true;
     void initUi();
+    void InitTreeView();
     int countWords();
     int countChars();
     int countLines();

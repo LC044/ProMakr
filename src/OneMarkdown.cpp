@@ -9,6 +9,7 @@ OneMarkdown::OneMarkdown(QWidget *parent)
 {
 
     ui->setupUi(this);
+    initUi();
     QString text = "<h1> 一级标题 </h1>";
     ui->webEngineView->load(QUrl("file:///data/html/index.html"));
 
@@ -22,7 +23,7 @@ OneMarkdown::OneMarkdown(QWidget *parent)
     timer->start(1000); // 每隔1000ms发送timeout的信号
     connect(timer, SIGNAL(timeout()), this, SLOT(time_update()));
     ui->textEdit->setFont(QFont("宋体", 12)); // 设置字体和字体大小
-    // ui->textEdit->setTextColor(Qt::red);//设置字体颜色
+    // ui->textEdit->setTextColor(Qt::red);//设置字体颜色1
     // 设置侧边栏初始比例 2:8
     ui->splitter->setStretchFactor(0, 2);
     ui->splitter->setStretchFactor(1, 8);
@@ -72,6 +73,19 @@ void OneMarkdown::time_update()
 
 void OneMarkdown::on_splitter_splitterMoved(int pos, int index)
 {
+    qDebug() << "splitter moved" << pos << index << endl;
+    if (pos == 0 && index == 1)
+    {
+        on_btn_hide_show_sideBar_clicked();
+        isSideClosed = true;
+        // qDebug() << "splitter closed" << SideLastPos << pos << index << endl;
+    }
+    else{
+        //  int w = ui->splitter->regValue("splitter_width").toInt(); //来自上次关闭时保留的值
+        // ui->splitter->
+        int w = ui->splitter->width();
+        SidePos << pos*100;
+    }
 }
 
 int OneMarkdown::countWords()
@@ -120,13 +134,66 @@ void OneMarkdown::on_btn_hide_show_sideBar_clicked()
 {
     isShowSideBar = !isShowSideBar;
     ui->widget_side_bar->setVisible(isShowSideBar);
-    if(isShowSideBar){
+    if (isShowSideBar)
+    {
         ui->btn_hide_show_sideBar->setIcon(QIcon(":/icon/icon/btn_side_bar_show.png"));
+        if (isSideClosed)
+        {
+            isSideClosed = false;
+            ui->splitter->setSizes(SidePos);
+        }
     }
-    else{
-        // ui->splitter->setStretchFactor(0, 0);
-        // ui->splitter->setStretchFactor(1, 10);
+    else
+    {
         ui->btn_hide_show_sideBar->setIcon(QIcon(":/icon/icon/btn_side_bar_hide.png"));
     }
 }
 
+void OneMarkdown::InitTreeView()
+{
+    // 1，构造Model，这里示例具有3层关系的model构造过程
+    QStandardItemModel *model = new QStandardItemModel(ui->treeView);
+    model->setHorizontalHeaderLabels(QStringList() << "序号"
+                                                   << "名称"); // 设置列头
+    for (int i = 0; i < 5; i++)
+    {
+        // 一级节点，加入mModel
+        QList<QStandardItem *> items1;
+        QStandardItem *item1 = new QStandardItem(QString::number(i));
+        QStandardItem *item2 = new QStandardItem("一级节点");
+        items1.append(item1);
+        items1.append(item2);
+        model->appendRow(items1);
+
+        for (int j = 0; j < 5; j++)
+        {
+            // 二级节点,加入第1个一级节点
+            QList<QStandardItem *> items2;
+            QStandardItem *item3 = new QStandardItem(QString::number(j));
+            QStandardItem *item4 = new QStandardItem("二级节点");
+            items2.append(item3);
+            items2.append(item4);
+            item1->appendRow(items2);
+
+            for (int k = 0; k < 5; k++)
+            {
+                // 三级节点,加入第1个二级节点
+                QList<QStandardItem *> items3;
+                QStandardItem *item5 = new QStandardItem(QString::number(k));
+                QStandardItem *item6 = new QStandardItem("三级节点");
+                items3.append(item5);
+                items3.append(item6);
+                item3->appendRow(items3);
+            }
+        }
+    }
+    // 2，给QTreeView应用model
+    ui->treeView->setModel(model);
+}
+
+void OneMarkdown::initUi()
+{
+    InitTreeView();
+    // on_splitter_splitterMoved();
+    ui->splitter->setCollapsible(1, false);  // 设置右边显示窗口不可折叠
+}

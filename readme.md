@@ -19,13 +19,11 @@
 
 [Markdown转HTML](https://github.com/progsource/maddy)
 <!-- 
-git config --global http.https://github.com.proxy socks5://127.0.0.1:1086
+git config --global http.https://github.com.proxy socks5://127.0.0.1:7890
 
 git push -u origin master
 
 git config --global --unset http.proxy
-
-git config --golbal http.proxy <http://127.0.0.1:7890>
 
 git commit -m 
 
