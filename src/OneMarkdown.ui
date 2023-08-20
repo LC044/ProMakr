@@ -117,13 +117,31 @@
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
               <property name="styleSheet">
-               <string notr="true">QToolButton{
-background-color:rgba(0,0,0,0);
+               <string notr="true">QPushButton{
+	background-color:rgba(0,0,0,0);
+	font-size:12px;
+	font-family:&quot;宋体&quot;;
 }
-</string>
+QPushButton:pressed{
+}
+QPushButton:checked{
+		font: bold;
+}</string>
               </property>
               <property name="text">
                <string>文件</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>false</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
+              </property>
+              <property name="default">
+               <bool>false</bool>
               </property>
               <property name="flat">
                <bool>true</bool>
@@ -142,13 +160,28 @@ background-color:rgba(0,0,0,0);
                <bool>false</bool>
               </property>
               <property name="styleSheet">
-               <string notr="true">QToolButton{
-background-color:rgba(0,0,0,0);
+               <string notr="true">QPushButton{
+	background-color:rgba(0,0,0,0);
+	font-size:12px;
+	font-family:&quot;宋体&quot;;
 }
-</string>
+QPushButton:pressed{
+}
+QPushButton:checked{
+		font: bold;
+}</string>
               </property>
               <property name="text">
                <string>大纲</string>
+              </property>
+              <property name="checkable">
+               <bool>true</bool>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+              <property name="autoExclusive">
+               <bool>true</bool>
               </property>
               <property name="default">
                <bool>false</bool>
@@ -198,12 +231,54 @@ background-color:rgba(0,0,0,0);
            <widget class="QTextEdit" name="textEdit">
             <property name="font">
              <font>
-              <pointsize>9</pointsize>
+              <family>宋体</family>
+              <pointsize>-1</pointsize>
              </font>
             </property>
             <property name="styleSheet">
-             <string notr="true">font-size:20;
-border:none;</string>
+             <string notr="true">QTextEdit#textEdit
+{
+	background:rgba(255,255,255,1);
+	color:rgba(0,0,0,1);
+ 
+	border-radius:2px;
+	border:none;
+	font-size:15px;
+	font-family:&quot;宋体&quot;;
+}
+ 
+QScrollBar:vertical
+{
+       border: none;
+       background: transparent;
+       width: 6px;
+}
+ 
+QScrollBar::handle:vertical
+{
+       background-color: rgba(178,178,178,1);
+       min-height: 30px;
+	  border-radius:3px;
+	  width: 6px;
+   }
+ 
+QScrollBar::add-line:vertical
+{
+       border: none;
+       height: 0px;
+ }
+ 
+ QScrollBar::sub-line:vertical
+{
+       border: none;
+       height: 0px;
+}
+ 
+ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical
+ {	
+	background:transparent;
+      border-radius:3px;
+}</string>
             </property>
             <property name="frameShape">
              <enum>QFrame::NoFrame</enum>
@@ -214,6 +289,9 @@ border:none;</string>
             <property name="lineWidth">
              <number>4</number>
             </property>
+            <property name="horizontalScrollBarPolicy">
+             <enum>Qt::ScrollBarAlwaysOff</enum>
+            </property>
             <property name="tabChangesFocus">
              <bool>false</bool>
             </property>
@@ -221,8 +299,8 @@ border:none;</string>
              <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'SimSun'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;132&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'宋体'; font-size:15px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
             </property>
             <property name="tabStopWidth">
              <number>40</number>
@@ -241,7 +319,38 @@ p, li { white-space: pre-wrap; }
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true"> border:none;</string>
+             <string notr="true">QScrollBar:vertical
+{
+       border: none;
+       background: transparent;
+       width: 6px;
+}
+ 
+QScrollBar::handle:vertical
+{
+       background-color: rgba(178,178,178,1);
+       min-height: 30px;
+	  border-radius:3px;
+	  width: 6px;
+   }
+ 
+QScrollBar::add-line:vertical
+{
+       border: none;
+       height: 0px;
+ }
+ 
+ QScrollBar::sub-line:vertical
+{
+       border: none;
+       height: 0px;
+}
+ 
+ QScrollBar::add-page:vertical,QScrollBar::sub-page:vertical
+ {	
+	background:transparent;
+      border-radius:3px;
+}</string>
             </property>
             <property name="url" stdset="0">
              <url>
