@@ -427,7 +427,7 @@ QPushButton{
      <x>0</x>
      <y>0</y>
      <width>770</width>
-     <height>26</height>
+     <height>23</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
@@ -468,14 +468,14 @@ QPushButton{
      <addaction name="action_138"/>
     </widget>
     <addaction name="separator"/>
-    <addaction name="action_2"/>
-    <addaction name="action_3"/>
+    <addaction name="action_new_file"/>
+    <addaction name="action_new_window"/>
     <addaction name="separator"/>
-    <addaction name="action_4"/>
+    <addaction name="action_open_file"/>
     <addaction name="menu_8"/>
     <addaction name="separator"/>
-    <addaction name="action_7"/>
-    <addaction name="action_8"/>
+    <addaction name="action_open_file_quick"/>
+    <addaction name="action_open_recent_file"/>
     <addaction name="separator"/>
     <addaction name="action_6"/>
     <addaction name="action_9"/>
@@ -779,7 +779,7 @@ QPushButton{
    <addaction name="menu_7"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
-  <action name="action_2">
+  <action name="action_new_file">
    <property name="text">
     <string>新建</string>
    </property>
@@ -793,7 +793,7 @@ QPushButton{
     <bool>true</bool>
    </property>
   </action>
-  <action name="action_3">
+  <action name="action_new_window">
    <property name="text">
     <string>新建窗口</string>
    </property>
@@ -801,7 +801,7 @@ QPushButton{
     <string>Ctrl+Shift+N</string>
    </property>
   </action>
-  <action name="action_4">
+  <action name="action_open_file">
    <property name="text">
     <string>打开...</string>
    </property>
@@ -809,7 +809,7 @@ QPushButton{
     <string>Ctrl+O</string>
    </property>
   </action>
-  <action name="action_7">
+  <action name="action_open_file_quick">
    <property name="text">
     <string>快速打开...</string>
    </property>
@@ -817,7 +817,7 @@ QPushButton{
     <string>Ctrl+P</string>
    </property>
   </action>
-  <action name="action_8">
+  <action name="action_open_recent_file">
    <property name="text">
     <string>打开最近文件</string>
    </property>

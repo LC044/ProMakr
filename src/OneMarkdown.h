@@ -8,7 +8,16 @@
 #include <QtWebEngineWidgets/QWebEngineView>
 #include<QtWebEngine/QtWebEngine>
 #include <QLabel>
+#include <QFileDialog>
+#include "global.h"
+#include <memory>
+#include <string>
+#include <iostream>
+#include "maddy/parser.h"
+#include <QDebug>
+#include <QTimer>
 QT_BEGIN_NAMESPACE
+
 namespace Ui { class OneMarkdown; }
 QT_END_NAMESPACE
 // QWebEngineView *webView = nullptr;
@@ -31,6 +40,11 @@ private slots:
     void textEdit_textChanged();
 
     void time_update();
+
+    void on_action_new_file_triggered();
+
+    void on_action_open_file_triggered();
+
 private:
     Ui::OneMarkdown *ui;
     QLabel *statusLabel;

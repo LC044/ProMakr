@@ -1,31 +1,15 @@
 #include "OneMarkdown.h"
 #include "./ui_OneMarkdown.h"
-#include "global.h"
-#include <memory>
-#include <string>
-#include <iostream>
-#include <fstream>
-#include "maddy/parser.h"
-#include <QDebug>
-#include<QtWebEngine/QtWebEngine>
-#include <QLabel>
-#include <QTimer>
+
 auto parser = std::make_shared<maddy::Parser>();
 
-std::string readFileIntoString(const std::string& path) {
-    std::ifstream input_file(path);
-    if (!input_file.is_open()) {
-        std::cerr << "Could not open the file - '"
-             << path << "'" << endl;
-        exit(EXIT_FAILURE);
-    }
-    return std::string((std::istreambuf_iterator<char>(input_file)), std::istreambuf_iterator<char>());
-}
+
 // std::string html_head = readFileIntoString("index.html");
 OneMarkdown::OneMarkdown(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::OneMarkdown)
 {
+
     ui->setupUi(this);
     QString text = "<h1> 一级标题 </h1>";
     ui->webEngineView->load(QUrl("file:///data/html/index.html"));
@@ -89,3 +73,7 @@ void OneMarkdown::time_update()
     QString timestr = current_time.toString( "hh:mm:ss"); //设置显示的格式
     statusLabel->setText(timestr); //设置label的文本内容为时间
 }
+
+
+
+

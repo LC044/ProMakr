@@ -28,6 +28,11 @@ set(PROJECT_SOURCES
         src/OneMarkdown.cpp
         src/OneMarkdown.h
         src/OneMarkdown.ui
+        src/file.h
+        src/file.cpp
+        src/common.h
+        src/common.cpp
+        src/menu.cpp
         ${TS_FILES}
 )
 if(MATRIX_BUILD AND NOT MATRIX_SUBBUILD AND NOT QT_SUPERBUILD)
