@@ -116,3 +116,17 @@ int OneMarkdown::countWords()
     //             , QString::SkipEmptyParts).count();
     // return wordCount;
 }
+void OneMarkdown::on_btn_hide_show_sideBar_clicked()
+{
+    isShowSideBar = !isShowSideBar;
+    ui->widget_side_bar->setVisible(isShowSideBar);
+    if(isShowSideBar){
+        ui->btn_hide_show_sideBar->setIcon(QIcon(":/icon/icon/btn_side_bar_show.png"));
+    }
+    else{
+        // ui->splitter->setStretchFactor(0, 0);
+        // ui->splitter->setStretchFactor(1, 10);
+        ui->btn_hide_show_sideBar->setIcon(QIcon(":/icon/icon/btn_side_bar_hide.png"));
+    }
+}
+

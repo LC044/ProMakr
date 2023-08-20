@@ -52,6 +52,8 @@ private slots:
 
     void on_splitter_splitterMoved(int pos, int index);
 
+    void on_btn_hide_show_sideBar_clicked();
+
 private:
     int WORD_NUM = 0;
     int CHAR_NUM = 0;
@@ -62,6 +64,7 @@ private:
     int end = 0;
     Ui::OneMarkdown *ui;
     QLabel *statusLabel;
+    bool isShowSideBar = true;
     void initUi();
     int countWords();
     int countChars();

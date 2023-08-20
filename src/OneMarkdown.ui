@@ -57,7 +57,7 @@
    <property name="inputMethodHints">
     <set>Qt::ImhNone</set>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_7">
+   <layout class="QHBoxLayout" name="horizontalLayout_6">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -78,128 +78,106 @@
       <property name="orientation">
        <enum>Qt::Horizontal</enum>
       </property>
-      <property name="opaqueResize">
-       <bool>true</bool>
-      </property>
       <property name="handleWidth">
        <number>1</number>
       </property>
-      <widget class="QWidget" name="layoutWidget">
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <widget class="QWidget" name="widget_side_bar" native="true">
+       <property name="styleSheet">
+        <string notr="true">background-color:rgb(250,250,250)</string>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
         <property name="spacing">
          <number>0</number>
         </property>
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
         <item>
-         <widget class="QWidget" name="widget_2" native="true">
-          <property name="styleSheet">
-           <string notr="true">background-color:rgb(250,250,250)</string>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+           <number>0</number>
           </property>
-          <layout class="QHBoxLayout" name="horizontalLayout_4">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item>
-            <layout class="QVBoxLayout" name="verticalLayout_2">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <property name="spacing">
-                <number>0</number>
-               </property>
-               <item>
-                <widget class="QPushButton" name="pushButton_2">
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QToolButton{
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_3">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QPushButton" name="pushButton_2">
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QToolButton{
 background-color:rgba(0,0,0,0);
 }
 </string>
-                 </property>
-                 <property name="text">
-                  <string>文件</string>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QPushButton" name="pushButton">
-                 <property name="cursor">
-                  <cursorShape>PointingHandCursor</cursorShape>
-                 </property>
-                 <property name="mouseTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="tabletTracking">
-                  <bool>false</bool>
-                 </property>
-                 <property name="styleSheet">
-                  <string notr="true">QToolButton{
+              </property>
+              <property name="text">
+               <string>文件</string>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QPushButton" name="pushButton">
+              <property name="cursor">
+               <cursorShape>PointingHandCursor</cursorShape>
+              </property>
+              <property name="mouseTracking">
+               <bool>false</bool>
+              </property>
+              <property name="tabletTracking">
+               <bool>false</bool>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">QToolButton{
 background-color:rgba(0,0,0,0);
 }
 </string>
-                 </property>
-                 <property name="text">
-                  <string>大纲</string>
-                 </property>
-                 <property name="default">
-                  <bool>false</bool>
-                 </property>
-                 <property name="flat">
-                  <bool>true</bool>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="Line" name="line">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
-              <widget class="QTreeView" name="treeView">
-               <property name="cursor" stdset="0">
-                <cursorShape>ArrowCursor</cursorShape>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item>
-         <widget class="Line" name="line_3">
-          <property name="styleSheet">
-           <string notr="true">background-color:rgb(221,221,221);   </string>
-          </property>
-          <property name="orientation">
-           <enum>Qt::Vertical</enum>
-          </property>
-         </widget>
+              </property>
+              <property name="text">
+               <string>大纲</string>
+              </property>
+              <property name="default">
+               <bool>false</bool>
+              </property>
+              <property name="flat">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QTreeView" name="treeView">
+            <property name="cursor" stdset="0">
+             <cursorShape>ArrowCursor</cursorShape>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>
@@ -328,6 +306,9 @@ solid:rgb(221,221,221);</string>
                  <height>32</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="autoFillBackground">
                 <bool>false</bool>
                </property>
@@ -335,6 +316,7 @@ solid:rgb(221,221,221);</string>
                 <string notr="true">QPushButton:hover {
 	background-color: rgb(240, 240, 240);
 	color:rgb(128,128,128);
+	
 }
 QPushButton{
 	color:white;
@@ -346,12 +328,12 @@ QPushButton{
                </property>
                <property name="icon">
                 <iconset resource="../data/img.qrc">
-                 <normaloff>:/icon/icon/333333_128_21555066.png</normaloff>:/icon/icon/333333_128_21555066.png</iconset>
+                 <normaloff>:/icon/icon/btn_side_bar_show.png</normaloff>:/icon/icon/btn_side_bar_show.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
-                 <width>32</width>
-                 <height>32</height>
+                 <width>16</width>
+                 <height>16</height>
                 </size>
                </property>
                <property name="default">
@@ -376,6 +358,9 @@ QPushButton{
                  <height>32</height>
                 </size>
                </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
+               </property>
                <property name="autoFillBackground">
                 <bool>false</bool>
                </property>
@@ -398,8 +383,8 @@ QPushButton{
                </property>
                <property name="iconSize">
                 <size>
-                 <width>32</width>
-                 <height>32</height>
+                 <width>16</width>
+                 <height>16</height>
                 </size>
                </property>
                <property name="flat">
@@ -432,6 +417,9 @@ QPushButton{
                 <font>
                  <underline>false</underline>
                 </font>
+               </property>
+               <property name="cursor">
+                <cursorShape>PointingHandCursor</cursorShape>
                </property>
                <property name="layoutDirection">
                 <enum>Qt::RightToLeft</enum>
