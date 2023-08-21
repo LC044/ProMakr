@@ -17,6 +17,7 @@
 #include <QDebug>
 #include <QTimer>
 #include "common.h"
+#include <QPropertyAnimation>
 #pragma execution_character_set("utf-8")
 QT_BEGIN_NAMESPACE
 
@@ -53,6 +54,14 @@ private slots:
     void on_splitter_splitterMoved(int pos, int index);
 
     void on_btn_hide_show_sideBar_clicked();
+
+    void on_btn_file_list_clicked();
+
+    void on_btn_outline_clicked();
+
+    void on_btn_outline_toggled(bool checked);
+
+    void on_btn_file_list_toggled(bool checked);
 
 private:
     int WORD_NUM = 0;

@@ -80,11 +80,14 @@ void OneMarkdown::on_splitter_splitterMoved(int pos, int index)
         isSideClosed = true;
         // qDebug() << "splitter closed" << SideLastPos << pos << index << endl;
     }
-    else{
+    else
+    {
         //  int w = ui->splitter->regValue("splitter_width").toInt(); //来自上次关闭时保留的值
         // ui->splitter->
         int w = ui->splitter->width();
-        SidePos << pos*100;
+        SidePos << pos * 100;
+        qDebug() << "splitter closed" << ui->widget_side_bar->width() << pos << index << endl;
+        // ui->line->setGeometry(QRect());
     }
 }
 
@@ -195,5 +198,25 @@ void OneMarkdown::initUi()
 {
     InitTreeView();
     // on_splitter_splitterMoved();
-    ui->splitter->setCollapsible(1, false);  // 设置右边显示窗口不可折叠
+    ui->splitter->setCollapsible(1, false); // 设置右边显示窗口不可折叠
+}
+
+void OneMarkdown::on_btn_file_list_clicked()
+{
+}
+
+void OneMarkdown::on_btn_outline_clicked()
+{
+}
+
+void OneMarkdown::on_btn_outline_toggled(bool checked)
+{
+    if(!checked) return;
+    qDebug() << "btn_outline_toggled" << endl;
+}
+
+void OneMarkdown::on_btn_file_list_toggled(bool checked)
+{
+    if(!checked) return;
+    qDebug() << "btn_file_list_toggled" << endl;
 }

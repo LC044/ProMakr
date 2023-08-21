@@ -88,7 +88,7 @@
        <property name="styleSheet">
         <string notr="true">background-color:rgb(250,250,250)</string>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <layout class="QHBoxLayout" name="horizontalLayout_7">
         <property name="spacing">
          <number>0</number>
         </property>
@@ -110,12 +110,18 @@
            <number>0</number>
           </property>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="1,1">
             <property name="spacing">
              <number>0</number>
             </property>
             <item>
-             <widget class="QPushButton" name="pushButton_2">
+             <widget class="QPushButton" name="btn_file_list">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
@@ -124,11 +130,15 @@
 	background-color:rgba(0,0,0,0);
 	font-size:12px;
 	font-family:&quot;宋体&quot;;
+
 }
 QPushButton:pressed{
 }
 QPushButton:checked{
-		font: bold;
+	font: bold;
+	border-style:solid;
+	border-color:#000000;
+	border-bottom-width:3px;
 }</string>
               </property>
               <property name="text">
@@ -147,12 +157,18 @@ QPushButton:checked{
                <bool>false</bool>
               </property>
               <property name="flat">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton">
+             <widget class="QPushButton" name="btn_outline">
+              <property name="minimumSize">
+               <size>
+                <width>75</width>
+                <height>25</height>
+               </size>
+              </property>
               <property name="cursor">
                <cursorShape>PointingHandCursor</cursorShape>
               </property>
@@ -167,11 +183,15 @@ QPushButton:checked{
 	background-color:rgba(0,0,0,0);
 	font-size:12px;
 	font-family:&quot;宋体&quot;;
+
 }
 QPushButton:pressed{
 }
 QPushButton:checked{
-		font: bold;
+	font: bold;
+	border-style:solid;
+	border-color:#000000;
+	border-bottom-width:3px;
 }</string>
               </property>
               <property name="text">
@@ -190,18 +210,11 @@ QPushButton:checked{
                <bool>false</bool>
               </property>
               <property name="flat">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
              </widget>
             </item>
            </layout>
-          </item>
-          <item>
-           <widget class="Line" name="line">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
           </item>
           <item>
            <widget class="QTreeView" name="treeView">
