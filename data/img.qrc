@@ -6,5 +6,6 @@
         <file>icon/btn_side_bar_hide.png</file>
         <file>icon/btn_side_bar_hover.png</file>
         <file>icon/btn_side_bar_show.png</file>
+        <file>icon/btn_source_code.png</file>
     </qresource>
 </RCC>

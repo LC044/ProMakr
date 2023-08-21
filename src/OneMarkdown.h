@@ -70,6 +70,8 @@ private slots:
 
     void on_action_save_file_triggered();
 
+    void on_action_save_as_triggered();
+
 private:
     int WORD_NUM = 0;
     int CHAR_NUM = 0;

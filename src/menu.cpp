@@ -1,8 +1,7 @@
 ﻿#include "OneMarkdown.h"
 #include "./ui_OneMarkdown.h"
 #include "global.h"
-bool IS_FILE_SAVED = false;
-QString  CURRENT_FILE="NULL"
+
 void OneMarkdown::on_action_new_file_triggered()
 {
 }
@@ -24,6 +23,7 @@ void OneMarkdown::on_action_open_file_triggered()
     // ui->textEdit->append("文件路径:"+filePath);
     // 文件信息//
     QFileInfo info(filePath);
+    CURRENT_FILE = filePath;
     // ui->textEdit->append(QString("文件大小:%1 byte").arg(info.size()));
     // ui->textEdit->append(QString("文件名称:%1").arg(info.fileName()));
     // ui->textEdit->append(QString("创建时间:%1").arg(info.created().toString("yyyy-MM-dd hh:mm:ss")));
@@ -52,36 +52,35 @@ void OneMarkdown::on_action_save_file_triggered()
 {
     if (!IS_FILE_SAVED) // r如果标记为1，证明有文件加载，不然没有不需要保存
     {
-        QString filePath;                               // 存储保存路径
-        filePath = QFileDialog::getSaveFileName(this, "保存");
-        if (filePath.isEmpty())
+        QString filePath; // 存储保存路径
+        if (CURRENT_FILE.isEmpty())
         {
-            QMessageBox::information(this, "信息", "保存失败");
+
+            filePath = QFileDialog::getSaveFileName(this, "保存");
+            if (filePath.isEmpty())
+            {
+                QMessageBox::information(this, "信息", "保存失败");
+                return;
+            }
         }
         else
         {
-            // 内容保存到路径文件
-            QFile file(filePath);
-
-            // 以文本方式打开
-            if (file.open(QIODevice::WriteOnly | QIODevice::Text))
-            {
-                // todo: 增量保存，优化保存性能
-                QTextStream out(&file); // IO设备对象的地址对其进行初始化
-
-                out << ui->textEdit->toPlainText() << endl; // 输出
-
-                QMessageBox::information(this, "文件保存成功", QString("文件保存在%2").arg(filePath));
-
-                file.close();
-                IS_FILE_SAVED = true;
-            }
-            else
-            {
-                QMessageBox::warning(this, tr("Error"), tr("File to open file!"));
-            }
-            // QDir *temp = new QDir; // 声明文件对象
-            // QMessageBox::information(this, "文件保存成功", QString("文件保存在%2").arg(filePath));
+            filePath = CURRENT_FILE;
+        }
+        // 内容保存到路径文件
+        QFile file(filePath);
+        // 以文本方式打开
+        if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+        {
+            // todo: 增量保存，优化保存性能
+            QTextStream out(&file);                     // IO设备对象的地址对其进行初始化
+            out << ui->textEdit->toPlainText() << endl; // 输出
+            file.close();
+            IS_FILE_SAVED = true;
+        }
+        else
+        {
+            QMessageBox::warning(this, tr("Error"), tr("File to open file!"));
         }
     }
     else
@@ -89,7 +88,32 @@ void OneMarkdown::on_action_save_file_triggered()
         QMessageBox::information(this, "错误", "保存失败");
     }
 }
-
+void OneMarkdown::on_action_save_as_triggered()
+{
+    QString filePath; // 存储保存路径
+    QString filter = "Markdown文档 (*.md);;纯文本文档 (*.txt)";
+    filePath = QFileDialog::getSaveFileName(this, "保存","Untitled.md",filter);
+    if (filePath.isEmpty())
+    {
+        QMessageBox::information(this, "错误", "未选择文件");
+        return;
+    }
+    // 内容保存到路径文件
+    QFile file(filePath);
+    // 以文本方式打开
+    if (file.open(QIODevice::WriteOnly | QIODevice::Text))
+    {
+        // todo: 增量保存，优化保存性能
+        QTextStream out(&file);                     // IO设备对象的地址对其进行初始化
+        out << ui->textEdit->toPlainText() << endl; // 输出
+        file.close();
+        IS_FILE_SAVED = true;
+    }
+    else
+    {
+        QMessageBox::warning(this, tr("Error"), tr("File to open file!"));
+    }
+}
 void OneMarkdown::on_action_new_window_triggered()
 {
 }

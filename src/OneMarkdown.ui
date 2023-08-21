@@ -661,7 +661,7 @@ QToolButton:hover {
     <addaction name="action_open_recent_file"/>
     <addaction name="separator"/>
     <addaction name="action_save_file"/>
-    <addaction name="action_9"/>
+    <addaction name="action_save_as"/>
     <addaction name="action_10"/>
     <addaction name="separator"/>
     <addaction name="action_12"/>
@@ -1013,7 +1013,7 @@ QToolButton:hover {
     <string>Ctrl+S</string>
    </property>
   </action>
-  <action name="action_9">
+  <action name="action_save_as">
    <property name="text">
     <string>另存为...</string>
    </property>
