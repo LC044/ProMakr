@@ -49,12 +49,17 @@ void OneMarkdown::textEdit_textChanged()
 {
     // disconnect 可以使得编辑textedit内容的时候不陷入死循环
     disconnect(ui->textEdit, &QTextEdit::textChanged, this, &OneMarkdown::textEdit_textChanged);
+
+    if(IS_FILE_SAVED){
+        IS_FILE_SAVED = false;
+    }
     QString text = ui->textEdit->toPlainText();
     std::string str = text.toStdString();
     std::stringstream markdownInput(str);
     std::string htmlOutput = parser->Parse(markdownInput);
     QString html = QString::fromStdString(htmlOutput);
     ui->webEngineView->page()->runJavaScript(QString("add('%1')").arg(html));
+
     connect(ui->textEdit, &QTextEdit::textChanged, this, &OneMarkdown::textEdit_textChanged);
     countWords();
     qDebug() << "HTML output" << html << endl;
@@ -211,12 +216,19 @@ void OneMarkdown::on_btn_outline_clicked()
 
 void OneMarkdown::on_btn_outline_toggled(bool checked)
 {
-    if(!checked) return;
+    if (!checked)
+        return;
     qDebug() << "btn_outline_toggled" << endl;
 }
 
 void OneMarkdown::on_btn_file_list_toggled(bool checked)
 {
-    if(!checked) return;
+    if (!checked)
+        return;
     qDebug() << "btn_file_list_toggled" << endl;
 }
+
+
+
+
+

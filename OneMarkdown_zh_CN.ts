@@ -1611,5 +1611,15 @@ p, li { white-space: pre-wrap; }
         <source>新建窗口</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="src/menu.cpp" line="84"/>
+        <source>Error</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="src/menu.cpp" line="84"/>
+        <source>File to open file!</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
