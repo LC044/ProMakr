@@ -13,6 +13,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # 设置 Qt 库的地址（按需设置）
 # set(QT_PATH "D:\\ProgramData\\Qt\\Qt5.12.12\\5.12.12\\mingw73_64")
 set(QT_PATH "D:\\ProgramData\\Qt\\Qt5.12.12\\5.12.12\\msvc2017_64")
+# set(QT_PATH "D:\\programs\\Qt\\Qt5.12.12\\5.12.12\\msvc2017_64")
 set(CMAKE_PREFIX_PATH ${QT_PATH}/lib/cmake)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets WebEngineWidgets WebChannel REQUIRED)

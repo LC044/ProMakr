@@ -1,6 +1,6 @@
 ﻿#include "OneMarkdown.h"
 #include "./ui_OneMarkdown.h"
-
+//#include "OneMarkdown.h"
 auto parser = std::make_shared<maddy::Parser>();
 
 // std::string html_head = readFileIntoString("index.html");
@@ -220,3 +220,262 @@ void OneMarkdown::on_btn_file_list_toggled(bool checked)
     if(!checked) return;
     qDebug() << "btn_file_list_toggled" << endl;
 }
+
+void OneMarkdown::on_action_48_triggered()
+{
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    // 如果当前行的开头是 "# "，则删除这个开头
+    if (lineText.startsWith("# "))
+    {
+      for(int i=0;i<2;i++)
+      {
+         cursor.deleteChar();
+      }
+    }
+    else if (lineText.startsWith("## ") || lineText.startsWith("### ") || lineText.startsWith("#### ") || lineText.startsWith("##### ") || lineText.startsWith("###### ") )
+    {
+      QRegularExpression regex("^(#+)\\s");
+      QString replacedText = lineText.replace(regex, "# ");
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.select(QTextCursor::LineUnderCursor);  // 选中整行文本
+      cursor.removeSelectedText();  // 删除选中的文本
+      cursor.insertText(replacedText);  // 插入替换后的文本
+    }
+    else
+    {
+      // 按照原先的代码执行
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.insertText("# ");  // 在当前行的开头插入"#  "
+    }
+}
+
+void OneMarkdown::on_action_49_triggered()
+{
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    // 如果当前行的开头是 "## "，则删除这个开头
+    if (lineText.startsWith("## "))
+    {
+      for(int i=0;i<3;i++)
+      {
+         cursor.deleteChar();
+      }
+    }
+    else if (lineText.startsWith("# ") || lineText.startsWith("### ") || lineText.startsWith("#### ") || lineText.startsWith("##### ") || lineText.startsWith("###### ") )
+    {
+      QRegularExpression regex("^(#+)\\s");
+      QString replacedText = lineText.replace(regex, "## ");
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.select(QTextCursor::LineUnderCursor);  // 选中整行文本
+      cursor.removeSelectedText();  // 删除选中的文本
+      cursor.insertText(replacedText);  // 插入替换后的文本
+    }
+    else
+    {
+      // 按照原先的代码执行
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.insertText("## ");  // 在当前行的开头插入"#  "
+    }
+}
+
+void OneMarkdown::on_action_50_triggered()
+{
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    // 如果当前行的开头是 "## "，则删除这个开头
+    if (lineText.startsWith("### "))
+    {
+      for(int i=0;i<4;i++)
+      {
+         cursor.deleteChar();
+      }
+    }
+    else if (lineText.startsWith("# ") || lineText.startsWith("## ") || lineText.startsWith("#### ") || lineText.startsWith("##### ") || lineText.startsWith("###### ") )
+    {
+      QRegularExpression regex("^(#+)\\s");
+      QString replacedText = lineText.replace(regex, "### ");
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.select(QTextCursor::LineUnderCursor);  // 选中整行文本
+      cursor.removeSelectedText();  // 删除选中的文本
+      cursor.insertText(replacedText);  // 插入替换后的文本
+    }
+    else
+    {
+      // 按照原先的代码执行
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.insertText("### ");  // 在当前行的开头插入"#  "
+    }
+}
+
+void OneMarkdown::on_action_51_triggered()
+{
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    // 如果当前行的开头是 "# "，则删除这个开头
+    if (lineText.startsWith("#### "))
+    {
+      for(int i=0;i<5;i++)
+      {
+         cursor.deleteChar();
+      }
+    }
+    else if (lineText.startsWith("# ") || lineText.startsWith("## ") || lineText.startsWith("### ") || lineText.startsWith("##### ") || lineText.startsWith("###### ") )
+    {
+      QRegularExpression regex("^(#+)\\s");
+      QString replacedText = lineText.replace(regex, "#### ");
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.select(QTextCursor::LineUnderCursor);  // 选中整行文本
+      cursor.removeSelectedText();  // 删除选中的文本
+      cursor.insertText(replacedText);  // 插入替换后的文本
+    }
+    else
+    {
+      // 按照原先的代码执行
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.insertText("#### ");  // 在当前行的开头插入"#  "
+    }
+}
+
+void OneMarkdown::on_action_52_triggered()
+{
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    // 如果当前行的开头是 "##### "，则删除这个开头
+    if (lineText.startsWith("##### "))
+    {
+      for(int i=0;i<6;i++)
+      {
+         cursor.deleteChar();
+      }
+    }
+    else if (lineText.startsWith("# ") || lineText.startsWith("## ") || lineText.startsWith("### ") || lineText.startsWith("#### ") || lineText.startsWith("###### ") )
+    {
+      QRegularExpression regex("^(#+)\\s");
+      QString replacedText = lineText.replace(regex, "##### ");
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.select(QTextCursor::LineUnderCursor);  // 选中整行文本
+      cursor.removeSelectedText();  // 删除选中的文本
+      cursor.insertText(replacedText);  // 插入替换后的文本
+    }
+    else
+    {
+      // 按照原先的代码执行
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.insertText("##### ");  // 在当前行的开头插入"#  "
+    }
+}
+
+void OneMarkdown::on_action_53_triggered()
+{
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    // 如果当前行的开头是 "###### "，则删除这个开头
+    if (lineText.startsWith("###### "))
+    {
+      for(int i=0;i<7;i++)
+      {
+         cursor.deleteChar();
+      }
+    }
+    else if (lineText.startsWith("# ") || lineText.startsWith("## ") || lineText.startsWith("### ") || lineText.startsWith("#### ") || lineText.startsWith("##### ") )
+    {
+      QRegularExpression regex("^(#+)\\s");
+      QString replacedText = lineText.replace(regex, "###### ");
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.select(QTextCursor::LineUnderCursor);  // 选中整行文本
+      cursor.removeSelectedText();  // 删除选中的文本
+      cursor.insertText(replacedText);  // 插入替换后的文本
+    }
+    else
+    {
+      // 按照原先的代码执行
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.insertText("###### ");  // 在当前行的开头插入"#  "
+    }
+}
+
+void OneMarkdown::on_action_55_triggered()
+{
+    // 段落按钮
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    if (lineText.startsWith("# ") || lineText.startsWith("## ") || lineText.startsWith("### ") || lineText.startsWith("#### ") || lineText.startsWith("##### ") || lineText.startsWith("###### ") )
+    {
+      QRegularExpression regex("^(#+)\\s");
+      QString replacedText = lineText.replace(regex, "");
+      cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+      cursor.select(QTextCursor::LineUnderCursor);  // 选中整行文本
+      cursor.removeSelectedText();  // 删除选中的文本
+      cursor.insertText(replacedText);  // 插入替换后的文本
+    }
+}
+
+
+void OneMarkdown::on_action_57_triggered()
+{
+    // 增加标题等级
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    // 如果当前行的开头是 "# "，则  不做  任何 操作
+    if (lineText.startsWith("# "))
+    {
+
+    }
+    else if (lineText.startsWith("## ") || lineText.startsWith("### ") || lineText.startsWith("#### ") || lineText.startsWith("##### ") || lineText.startsWith("###### ") )
+    {
+        cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+        cursor.deleteChar();  // 在当前行的开头删除"#"
+    }
+    else{
+        cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+        cursor.insertText("###### ");  // 在当前行的开头插入"#  "
+    }
+}
+
+void OneMarkdown::on_action_58_triggered()
+{
+    //   减小标题等级
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    if (lineText.startsWith("# ") || lineText.startsWith("## ") || lineText.startsWith("### ") || lineText.startsWith("#### ") || lineText.startsWith("##### "))
+    {
+        cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+        cursor.insertText("#");  // 在当前行的开头插入"#  "
+    }
+    else if(lineText.startsWith("###### ") ){
+        cursor.movePosition(QTextCursor::StartOfLine);  // 将光标移动到当前行的开头
+        for(int i=0;i<7;i++)
+        {
+           cursor.deleteChar();
+        }
+    }
+}
+

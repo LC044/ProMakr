@@ -63,6 +63,24 @@ private slots:
 
     void on_btn_file_list_toggled(bool checked);
 
+    void on_action_48_triggered();
+
+    void on_action_49_triggered();
+
+    void on_action_50_triggered();
+
+    void on_action_51_triggered();
+
+    void on_action_52_triggered();
+
+    void on_action_53_triggered();
+
+    void on_action_55_triggered();
+
+    void on_action_57_triggered();
+
+    void on_action_58_triggered();
+
 private:
     int WORD_NUM = 0;
     int CHAR_NUM = 0;
