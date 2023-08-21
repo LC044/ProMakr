@@ -2,6 +2,7 @@
 #include "./ui_OneMarkdown.h"
 #include "global.h"
 bool IS_FILE_SAVED = false;
+QString  CURRENT_FILE="NULL"
 void OneMarkdown::on_action_new_file_triggered()
 {
 }
@@ -51,12 +52,7 @@ void OneMarkdown::on_action_save_file_triggered()
 {
     if (!IS_FILE_SAVED) // r如果标记为1，证明有文件加载，不然没有不需要保存
     {
-        QString dirPath;                                // 创建文件夹路径
         QString filePath;                               // 存储保存路径
-        QString saveName = "保存实验图";                // 保存图片名字
-        QDateTime time = QDateTime::currentDateTime();  // 获取系统现在的时间
-        QString str = time.toString("yyyyMMdd_hhmmss"); // 设置显示格式
-        // filePath = QFileDialog::getExistingDirectory(this, ""); // 获取文件夹路径
         filePath = QFileDialog::getSaveFileName(this, "保存");
         if (filePath.isEmpty())
         {
@@ -70,6 +66,7 @@ void OneMarkdown::on_action_save_file_triggered()
             // 以文本方式打开
             if (file.open(QIODevice::WriteOnly | QIODevice::Text))
             {
+                // todo: 增量保存，优化保存性能
                 QTextStream out(&file); // IO设备对象的地址对其进行初始化
 
                 out << ui->textEdit->toPlainText() << endl; // 输出

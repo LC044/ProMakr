@@ -440,11 +440,8 @@ solid:rgb(221,221,221);</string>
                <property name="styleSheet">
                 <string notr="true">QPushButton:hover {
 	background-color: rgb(240, 240, 240);
-	color:rgb(128,128,128);
-	
 }
 QPushButton{
-	color:white;
 	background-color:transparent;
 }</string>
                </property>
@@ -504,12 +501,12 @@ QPushButton{
                </property>
                <property name="icon">
                 <iconset resource="../data/img.qrc">
-                 <normaloff>:/icon/icon/btn_hide_show_sideBar.png</normaloff>:/icon/icon/btn_hide_show_sideBar.png</iconset>
+                 <normaloff>:/icon/icon/btn_source_code.png</normaloff>:/icon/icon/btn_source_code.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
-                 <width>16</width>
-                 <height>16</height>
+                 <width>24</width>
+                 <height>24</height>
                 </size>
                </property>
                <property name="flat">

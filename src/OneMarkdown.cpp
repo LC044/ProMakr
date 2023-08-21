@@ -64,7 +64,6 @@ void OneMarkdown::textEdit_textChanged()
     countWords();
     qDebug() << "HTML output" << html << endl;
     qDebug() << "text output" << text << endl;
-    qDebug() << "text output" << text.replace('\t', "    ") << endl;
     // ui->statusBar.
 }
 
