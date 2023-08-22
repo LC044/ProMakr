@@ -73,6 +73,6 @@ Thumbs.db
 *.exe
 .VS
 build
-test.*
+test*
 .vscode
 .VSCodeCounter

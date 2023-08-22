@@ -18,6 +18,7 @@
 #include <QTimer>
 #include "common.h"
 #include <QPropertyAnimation>
+#include <QMessageBox>
 #pragma execution_character_set("utf-8")
 QT_BEGIN_NAMESPACE
 
@@ -81,12 +82,21 @@ private slots:
 
     void on_action_58_triggered();
 
+    void on_action_new_window_triggered();
+
+    void on_action_open_recent_file_triggered();
+
+    void on_action_save_file_triggered();
+
+    void on_action_save_as_triggered();
+
+
 private:
     int WORD_NUM = 0;
     int CHAR_NUM = 0;
     int LINE_NUM = 0;
     bool isSideClosed = false;
-    QList<int> SidePos={10000,40000};
+    QList<int> SidePos = {10000, 40000};
     int size = 0;
     int counter = 0;
     int start = 0;

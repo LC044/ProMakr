@@ -36,6 +36,7 @@ set(PROJECT_SOURCES
         src/common.h
         src/common.cpp
         src/menu.cpp
+        src/global.cpp
         ${TS_FILES}
         ${qrc_FILES}
 )
