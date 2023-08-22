@@ -1,26 +1,10 @@
 ﻿#include "OneMarkdown.h"
 #include "./ui_OneMarkdown.h"
 #include "global.h"
-
-void OneMarkdown::on_action_new_file_triggered()
+void OneMarkdown::readFileToTextEdit(QString filePath)
 {
-}
-
-void OneMarkdown::on_action_open_file_triggered()
-{
-    // 选择文件对话框/
+    // disconnect 可以使得编辑textedit内容的时候不陷入死循环
     disconnect(ui->textEdit, &QTextEdit::textChanged, this, &OneMarkdown::textEdit_textChanged);
-    QFileDialog *f = new QFileDialog(this);
-    f->setWindowTitle("选择数据文件*.md");
-    f->setNameFilter("*.md");
-    f->setViewMode(QFileDialog::Detail);
-
-    QString filePath;
-    if (f->exec() == QDialog::Accepted)
-        filePath = f->selectedFiles()[0];
-
-    // ui->lineEdit->setText(filePath);
-    // ui->textEdit->append("文件路径:"+filePath);
     // 文件信息//
     QFileInfo info(filePath);
     CURRENT_FILE = filePath;
@@ -40,13 +24,33 @@ void OneMarkdown::on_action_open_file_triggered()
     }
     ui->textEdit->clear();
     QTextStream readStream(&file);
-
     while (!readStream.atEnd())
     {
-        ui->textEdit->append(readStream.readLine());
+        // ui->textEdit->append(readStream.readLine());
+        ui->textEdit->insertPlainText(readStream.readLine()+"\n");
     }
     connect(ui->textEdit, &QTextEdit::textChanged, this, &OneMarkdown::textEdit_textChanged);
     textEdit_textChanged();
+}
+void OneMarkdown::on_action_new_file_triggered()
+{
+}
+
+void OneMarkdown::on_action_open_file_triggered()
+{
+    // 选择文件对话框/
+    disconnect(ui->textEdit, &QTextEdit::textChanged, this, &OneMarkdown::textEdit_textChanged);
+    QFileDialog *f = new QFileDialog(this);
+    f->setWindowTitle("选择数据文件*.md");
+    f->setNameFilter("*.md");
+    f->setViewMode(QFileDialog::Detail);
+
+    QString filePath;
+    if (f->exec() == QDialog::Accepted)
+        filePath = f->selectedFiles()[0];
+    // ui->lineEdit->setText(filePath);
+    // ui->textEdit->append("文件路径:"+filePath);
+    readFileToTextEdit(filePath);
 }
 void OneMarkdown::on_action_save_file_triggered()
 {
@@ -92,7 +96,7 @@ void OneMarkdown::on_action_save_as_triggered()
 {
     QString filePath; // 存储保存路径
     QString filter = "Markdown文档 (*.md);;纯文本文档 (*.txt)";
-    filePath = QFileDialog::getSaveFileName(this, "保存","Untitled.md",filter);
+    filePath = QFileDialog::getSaveFileName(this, "保存", "Untitled.md", filter);
     if (filePath.isEmpty())
     {
         QMessageBox::information(this, "错误", "未选择文件");

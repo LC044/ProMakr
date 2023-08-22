@@ -200,8 +200,10 @@ void OneMarkdown::InitTreeView()
 
 void OneMarkdown::initUi()
 {
-    InitTreeView();
+    // InitTreeView();
     // on_splitter_splitterMoved();
+    pFileModel = new QFileSystemModel();
+    ui->treeView->setModel(pFileModel);
     ui->splitter->setCollapsible(1, false); // 设置右边显示窗口不可折叠
 }
 
@@ -225,12 +227,34 @@ void OneMarkdown::on_btn_file_list_toggled(bool checked)
     if (!checked)
         return;
     qDebug() << "btn_file_list_toggled" << endl;
+    // todo: 增加文件索引信号与槽函数绑定
+    QString selectDir = QFileDialog::getExistingDirectory();
+	if (selectDir.isEmpty())
+    {
+        QMessageBox::information(this, "错误", "未选择文件");
+        return;
+    }
+    pFileModel ->setRootPath(selectDir);
+	// 绑定model，并设置索引
+    ui->treeView->setRootIndex(pFileModel->index(selectDir));
+    qDebug() << "forder" <<pFileModel->index(selectDir,5)<< endl;
+    // 隐藏系统自带的Header
+    ui->treeView->header()->setVisible(false);
+    // 隐藏其他三列，大小，名称等信息
+    ui->treeView->setColumnHidden(1, true);
+    ui->treeView->setColumnHidden(2, true);
+    ui->treeView->setColumnHidden(3, true);
 }
 
 
 
-
-
-
-
+void OneMarkdown::on_treeView_clicked(const QModelIndex &index)
+{
+    
+    QString filePath = pFileModel->filePath(index);
+    qDebug() << "forder" <<filePath<< endl;
+    if(!filePath.isEmpty()){
+        readFileToTextEdit(filePath);
+    }
+}
 
