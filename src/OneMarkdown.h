@@ -64,6 +64,24 @@ private slots:
 
     void on_btn_file_list_toggled(bool checked);
 
+    void on_action_48_triggered();
+
+    void on_action_49_triggered();
+
+    void on_action_50_triggered();
+
+    void on_action_51_triggered();
+
+    void on_action_52_triggered();
+
+    void on_action_53_triggered();
+
+    void on_action_55_triggered();
+
+    void on_action_57_triggered();
+
+    void on_action_58_triggered();
+
     void on_action_new_window_triggered();
 
     void on_action_open_recent_file_triggered();
@@ -71,6 +89,7 @@ private slots:
     void on_action_save_file_triggered();
 
     void on_action_save_as_triggered();
+
 
 private:
     int WORD_NUM = 0;
