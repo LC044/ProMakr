@@ -19,6 +19,7 @@
 #include "common.h"
 #include <QPropertyAnimation>
 #include <QMessageBox>
+#include "table.h"
 #pragma execution_character_set("utf-8")
 QT_BEGIN_NAMESPACE
 
@@ -90,6 +91,9 @@ private slots:
 
     void on_action_save_as_triggered();
 
+    void on_action_insert_table_triggered();
+
+    void table_TextEntered(const QString& text1, const QString& text2);
 
 private:
     int WORD_NUM = 0;

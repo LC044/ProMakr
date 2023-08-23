@@ -792,7 +792,7 @@ QToolButton:hover {
      <property name="title">
       <string>表格</string>
      </property>
-     <addaction name="action_173"/>
+     <addaction name="action_insert_table"/>
      <addaction name="separator"/>
      <addaction name="action_175"/>
      <addaction name="action_176"/>
@@ -1952,7 +1952,7 @@ QToolButton:hover {
     <string>Ctrl+H</string>
    </property>
   </action>
-  <action name="action_173">
+  <action name="action_insert_table">
    <property name="text">
     <string>插入表格</string>
    </property>

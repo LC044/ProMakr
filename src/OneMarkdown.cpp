@@ -1,6 +1,6 @@
 ﻿#include "OneMarkdown.h"
 #include "./ui_OneMarkdown.h"
-//#include "OneMarkdown.h"
+#include "OneMarkdown.h"
 auto parser = std::make_shared<maddy::Parser>();
 
 // std::string html_head = readFileIntoString("index.html");
@@ -485,3 +485,34 @@ void OneMarkdown::on_action_58_triggered()
     }
 }
 
+
+void OneMarkdown::on_action_insert_table_triggered()
+{
+    table *t = new table();
+    t -> show();
+    disconnect(t, &table::textEntered, this, &OneMarkdown::table_TextEntered);  // 断开之前的连接
+    connect(t, &table::textEntered, this, &OneMarkdown::table_TextEntered);
+}
+
+void OneMarkdown::table_TextEntered(const QString& text1, const QString& text2)
+{
+    QTextCursor cursor(ui->textEdit->textCursor());  // 获取当前文本编辑器的光标
+
+    // 获取当前行的文本
+    cursor.movePosition(QTextCursor::StartOfLine);
+    QString lineText = cursor.block().text();
+
+    if(!lineText.isEmpty())
+    {
+        cursor.movePosition(QTextCursor::EndOfLine);  // 移动光标到当前行的结尾
+        cursor.insertBlock();  // 在当前行的下一行插入一个空行
+        cursor.insertBlock();
+        ui->textEdit->setTextCursor(cursor);  // 设置新的光标位置
+    }
+    cursor.insertText("|table>\n");
+    QString tableLine = QString("|").repeated(text2.toInt()) + QString("\n");
+    for (int i = 0; i < text1.toInt(); i++) {
+      cursor.insertText(tableLine);
+    }
+    cursor.insertText("\n|<table");
+}
